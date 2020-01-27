@@ -8,11 +8,11 @@
 <h2>Exercises:  </h2>
 <ul>
   <li *ngFor="let exercise of exercises">
-    <div cdkDrag>
     <h2 (click)="exerciseClicked(exercise)" >{{exercise.name}}</h2>
-    </div>
   </li>
 </ul>
 
-
+<div cdkDrag>
+  Akttuelle
+</div>
 <router-outlet></router-outlet>
