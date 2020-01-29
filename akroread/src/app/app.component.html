@@ -12,8 +12,9 @@
   </li>
 </ul>
 <div>
-<h5><strong>{{exercises[exerciseID].name}}</strong></h5>
-    <p> {{exercises[exerciseID].description}}</p>
+
+ <div *ngFor="let exercise of exercises">
+    <p *ngif="exercise.id == exerciseID" >{{exercise.name}}</p>
 </div>
 <div cdkDrag>
   test drag
