@@ -11,11 +11,8 @@
     <h2 (click)="exerciseClicked(exercise)" >{{exercise.name}}</h2>
   </li>
 </ul>
-<div>
-
- <div *ngFor="let exercise of exercises">
-    <p *ngif="exercise.id == exerciseID" >{{exercise.name}}</p>
-</div>
+<p>{{selectedExercise.name}}</p>
+<p >{{selectedExercise.description}}</p>
 <div cdkDrag>
   test drag
 </div>

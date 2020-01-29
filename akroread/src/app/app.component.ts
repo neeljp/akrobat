@@ -9,7 +9,7 @@ import { ApiService } from './api.service';
 export class AppComponent {
   title = 'akroread';
   exercises = [{title: 'test'}];
-  exerciseID = 0;
+  selectedExercise = [{title: 'test'}];
   constructor(private api: ApiService){
    this.getExercises();
 }
@@ -26,7 +26,7 @@ export class AppComponent {
   this.api.getOneExercise(exercise.id).subscribe(
     data => {
   console.log(data);
-  this.exerciseID = data.id;
+  this.selectedExercise = data;
  },
  error => {
  console.log(error);
