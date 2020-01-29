@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  baseurl = "http://akrobat.shubs.de/";
+  baseurl = "https://akrobat.shubs.de/";
   httpHeaders = new HttpHeaders({'Content-type': 'aplication/json'});
   constructor( private http: HttpClient) { }
 
