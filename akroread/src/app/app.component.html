@@ -22,13 +22,13 @@
   cdkDropList
   #inactiveList="cdkDropList"
   id = "Inactive Exercises"
-  [cdkDropListData]="exercises"
+  [cdkDropListData]="inactiveExercises"
   [cdkDropListConnectedTo]="[activeList]"
   (cdkDropListDropped)="drop($event)">
   <div
     class="drag-box"
-    [cdkDragData]="exercise"
-    *ngFor="let exercise of exercises"
+    [cdkDragData]="inactiveExercises"
+    *ngFor="let exercise of inactiveExercises"
     cdkDrag>
     {{exercise.name}}
   </div>
