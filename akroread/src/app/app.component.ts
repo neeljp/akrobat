@@ -39,15 +39,20 @@ export class AppComponent {
 }
 
 export class TransferItemsListsComponent {
-  inactiveCexercises = [];
+  inactiveCexercises = [
+    'The Far Side of the World',
+    'Morituri',
+    'Napoleon Dynamite',
+    'Pulp Fiction',
+    'Blade Runner',
+    'Cool Hand Luke',
+    'Heat',
+    'Juice'
+  ];
 
   activeexercises = [];
 
-  constructor(private api: ApiService){
-   this.getExercises();
-}
-
-  drop = (event: CdkDragDrop<string[]>) => {
+  drop(event: CdkDragDrop<string[]>){
     if (event.previousContainer === event.container) {
       console.log('dropped Event',
         `> dropped '${event.item.data}' into '${event.container.id}'`);
@@ -80,13 +85,17 @@ export class TransferItemsListsComponent {
       `> drag '${event.item.data}' from '${event.container.id}'`);
   }
 
-  getExercises = () => {
-   this.api.getAllExercises().subscribe(
-     data => {
-      this.inactiveCexercises = data;
-  },
-  error => {
-  console.log(error);
- });
- }
+//
+//   constructor(private api: ApiService){
+//    this.getExercises();
+// }
+//   getExercises = () => {
+//    this.api.getAllExercises().subscribe(
+//      data => {
+//       this.inactiveCexercises = data;
+//   },
+//   error => {
+//   console.log(error);
+//  });
+//}
 }
