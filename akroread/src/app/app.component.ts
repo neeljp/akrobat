@@ -46,16 +46,8 @@ export class TransferItemsListsComponent {
   constructor(private api: ApiService){
    this.getExercises();
 }
- getExercises = () => {
-  this.api.getAllExercises().subscribe(
-    data => {
-     this.inactiveCexercises = data;
- },
- error => {
- console.log(error);
-});
-}
-  drop(event: CdkDragDrop<string[]>) {
+
+  drop = (event: CdkDragDrop<string[]>) => {
     if (event.previousContainer === event.container) {
       console.log('dropped Event',
         `> dropped '${event.item.data}' into '${event.container.id}'`);
@@ -87,4 +79,14 @@ export class TransferItemsListsComponent {
     console.log('dragExited Event',
       `> drag '${event.item.data}' from '${event.container.id}'`);
   }
+
+  getExercises = () => {
+   this.api.getAllExercises().subscribe(
+     data => {
+      this.inactiveCexercises = data;
+  },
+  error => {
+  console.log(error);
+ });
+ }
 }
