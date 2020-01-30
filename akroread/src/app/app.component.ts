@@ -8,37 +8,9 @@ import { moveItemInArray, transferArrayItem, CdkDragDrop, CdkDragStart, CdkDragE
   styleUrls: ['./app.component.sass'],
   providers: [ApiService]
 })
+
 export class AppComponent {
-  title = 'akroread';
-  exercises = [{title: 'test'}];
-  selectedExercise = [{title: 'test'}];
-  constructor(private api: ApiService){
-   this.getExercises();
-}
- getExercises = () => {
-  this.api.getAllExercises().subscribe(
-    data => {
-     this.exercises = data;
- },
- error => {
- console.log(error);
-});
-}
- exerciseClicked = (exercise) => {
-  this.api.getOneExercise(exercise.id).subscribe(
-    data => {
-  console.log(data);
-  this.selectedExercise = data;
- },
- error => {
- console.log(error);
-});
 
-
-}
-}
-
-export class TransferItemsListsComponent {
   inactiveExercises = [];
 
   activeExercises = [];
@@ -83,10 +55,39 @@ export class TransferItemsListsComponent {
   getExercises = () => {
    this.api.getAllExercises().subscribe(
      data => {
-      this.inactiveCexercises = data;
+      this.inactiveExercises = data;
   },
   error => {
   console.log(error);
  });
 }
 }
+
+//   title = 'akroread';
+//   exercises = [{title: 'test'}];
+//   selectedExercise = [{title: 'test'}];
+//   constructor(private api: ApiService){
+//    this.getExercises();
+// }
+//  getExercises = () => {
+//   this.api.getAllExercises().subscribe(
+//     data => {
+//      this.exercises = data;
+//  },
+//  error => {
+//  console.log(error);
+// });
+// }
+//  exerciseClicked = (exercise) => {
+//   this.api.getOneExercise(exercise.id).subscribe(
+//     data => {
+//   console.log(data);
+//   this.selectedExercise = data;
+//  },
+//  error => {
+//  console.log(error);
+// });
+//
+//
+// }
+// }
