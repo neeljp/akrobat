@@ -11,9 +11,28 @@
     <h2 (click)="exerciseClicked(exercise)" >{{exercise.name}}</h2>
   </li>
 </ul>
+<div cdkDrag>
 <p>{{selectedExercise.name}}</p>
 <p >{{selectedExercise.description}}</p>
-<div cdkDrag>
-  test drag
 </div>
+
+
+<div
+  class="box-list"
+  cdkDropList
+  #inactiveList="cdkDropList"
+  id = "Inactive Exercises"
+  [cdkDropListData]="exercises"
+  [cdkDropListConnectedTo]="[activeList]"
+  (cdkDropListDropped)="drop($event)">
+  <div
+    class="drag-box"
+    [cdkDragData]="exercise"
+    *ngFor="let exercise of exercises"
+    cdkDrag>
+    {{exercise.name}}
+  </div>
+</div>
+
+
 <router-outlet></router-outlet>
