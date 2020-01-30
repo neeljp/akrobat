@@ -34,5 +34,22 @@
   </div>
 </div>
 
+<div
+  class="box-list"
+  cdkDropList
+  #activeList1="cdkDropList"
+  id = "Active Exercise 1"
+  [cdkDropListData]="activeExercises"
+  [cdkDropListConnectedTo]="[inactiveList1]"
+  (cdkDropListDropped)="drop($event)">
+  <div class="drag-box" [cdkDragData]="Exercise" *ngFor="let exercise of activeExercises" cdkDrag
+    (cdkDragStarted)="dragStarted($event)"
+    (cdkDragEnded)="dragEnded($event)"
+    (cdkDragEntered)="dragEntered($event)"
+    (cdkDragExited)="dragExited($event)">
+  {{exercise.name}}
+  </div>
+</div>
+
 
 <router-outlet></router-outlet>

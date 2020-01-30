@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from './api.service';
-import { CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { moveItemInArray, transferArrayItem, CdkDragDrop, CdkDragStart, CdkDragEnd, CdkDragEnter, CdkDragExit} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-root',
@@ -69,5 +69,22 @@ export class TransferItemsListsComponent {
         event.previousIndex,
         event.currentIndex);
     }
+  }
+  dragStarted(event: CdkDragStart) {
+    console.log('dragStarted Event > item', event.source.data);
+  }
+
+  dragEnded(event: CdkDragEnd) {
+    console.log('dragEnded Event > item', event.source.data);
+  }
+
+  dragEntered(event: CdkDragEnter) {
+    console.log('dragEntered Event',
+      `> dropping '${event.item.data}' into '${event.container.id}'`);
+  }
+
+  dragExited(event: CdkDragExit) {
+    console.log('dragExited Event',
+      `> drag '${event.item.data}' from '${event.container.id}'`);
   }
 }
