@@ -54,7 +54,7 @@ export class TransferItemsListsComponent {
  error => {
  console.log(error);
 });
-
+}
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       console.log('dropped Event',
